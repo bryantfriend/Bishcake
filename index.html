@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BISHCAKE - Sweets on the Go</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="antialiased">
+  <div id="app-container" class="w-full max-w-5xl mx-auto px-4 py-6">
+    <header class="flex justify-end items-center mb-4 space-x-3">
+      <img src="https://flagcdn.com/us.svg" alt="USA Flag" class="w-8 h-auto cursor-pointer rounded-md shadow-sm" onclick="changeLanguage('en')" />
+      <img src="https://flagcdn.com/ru.svg" alt="Russia Flag" class="w-8 h-auto cursor-pointer rounded-md shadow-sm" onclick="changeLanguage('ru')" />
+      <img src="https://flagcdn.com/kg.svg" alt="Kyrgyzstan Flag" class="w-8 h-auto cursor-pointer rounded-md shadow-sm" onclick="changeLanguage('kg')" />
+    </header>
+
+    <div class="text-center mb-8">
+      <img src="assets/bishcakelogo3.jpg" alt="Bishcake Logo" class="w-24 h-24 mx-auto mb-2 rounded-full shadow-md" />
+      <h1 class="text-4xl logo-font highlight-purple">BISHCAKE</h1>
+      <p class="font-bold mt-2 tracking-wider" data-key="tagline">SWEETS ON THE GO</p>
+    </div>
+
+    <div class="text-center mb-12">
+      <button class="bg-copper text-white font-bold py-3 px-12 rounded-full shadow-lg transform hover:scale-105 transition-transform" onclick="openOrderModal()" data-key="order_now">Order Now</button>
+    </div>
+
+    <section id="about" class="text-center mb-12">
+      <h2 class="text-2xl font-bold mb-2 highlight-purple" data-key="about_title">Made with Love</h2>
+      <p class="text-gray-600" data-key="about_desc">BISHCAKE offers delicious cakes and custom treats made with love—perfect for any occasion or sweet craving.</p>
+    </section>
+
+    <section id="treats" class="mb-12">
+      <h2 class="text-2xl font-bold text-center mb-6 highlight-purple" data-key="treats_title">Our Treats</h2>
+      <div class="carousel grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Cards will be injected here -->
+      </div>
+    </section>
+
+    <footer class="text-center text-gray-500 text-sm">
+      <p>&copy; 2024 BISHCAKE. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Order Modal -->
+  <div id="orderModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+    <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-xl transform scale-95 transition-transform">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold highlight-purple" data-key="order_form_title">Place Your Order</h2>
+        <button onclick="closeOrderModal()" class="text-2xl font-bold text-gray-500 hover:text-gray-800">&times;</button>
+      </div>
+      <form id="orderForm">
+        <div class="mb-4">
+          <label for="treat-selection" class="block text-sm font-medium text-gray-700" data-key="form_treat">Treat</label>
+          <select id="treat-selection" name="treat" class="input" required></select>
+        </div>
+        <div class="mb-4">
+          <label for="quantity" class="block text-sm font-medium text-gray-700" data-key="form_quantity">Quantity</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" class="input" />
+        </div>
+        <div class="mb-4">
+          <label for="pickup-date" class="block text-sm font-medium text-gray-700" data-key="form_date">Pickup Date</label>
+          <input type="date" id="pickup-date" name="date" class="input" required />
+        </div>
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-medium text-gray-700" data-key="form_name">Name</label>
+          <input type="text" id="name" name="name" class="input" required />
+        </div>
+        <div class="mb-4">
+          <label for="note" class="block text-sm font-medium text-gray-700" data-key="form_note">Optional Note</label>
+          <textarea id="note" name="note" rows="3" class="input"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-copper text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:bg-opacity-90" data-key="form_submit">Send to WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
