@@ -189,8 +189,8 @@ function getTreatNameById(id) {
 document.getElementById('orderForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const formData = new FormData(this);
-  //const phoneNumber = '996503110629';
-  const phoneNumber = '996550346970';
+  const phoneNumber = '996503110629';
+  
   const treatId = formData.get('treat');
   const treatName = getTreatNameById(treatId);
   const quantity = formData.get('quantity');
